@@ -1,7 +1,7 @@
 import { FaSun, FaMoon, FaInstagram, FaFacebook } from "react-icons/fa";
 import { VStack, Flex } from "@chakra-ui/layout";
 import { IconButton } from "@chakra-ui/button";
-import Link from "./Link";
+// import Link from "./Link";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useColorMode } from "@chakra-ui/color-mode";
 
@@ -26,13 +26,13 @@ const Header = () => {
           </Flex>
         </VStack>
 
-        <VStack>
+        {/* <VStack>
           <Flex>
             <Link />
             <Link />
             <Link />
           </Flex>
-        </VStack>
+        </VStack> */}
       </Flex>
     </>
   );

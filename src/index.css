@@ -1,11 +1,13 @@
-body {
-background-color: #cae9ff;
+.app-body {
+    background: #cae9ff;
 }
 
-.about {
-    margin-top: 2rem;
+.about-divider {
+    color: #1b4965;
 }
 
-.article {
-    margin: 2rem 0rem;
-}
+/* .footer {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+} */

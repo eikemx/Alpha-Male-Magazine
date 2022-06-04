@@ -1,12 +1,30 @@
-// const Tags = (articles) => {
-//     console.log (articles.articles.items[1].fields.tags[0]);
-//     return (
-//         <div>
-//             <p>
-//                 Tag 1: "{articles.articles.items[1].fields.tags[0]}"
-//             </p>
-//         </div>
-//     )
-// }
+import { Box, Flex } from '@chakra-ui/react';
+import { Container } from "@chakra-ui/layout";
 
-// export default Tags;
+const Tags = ({tags}) => {
+    console.log(tags)
+
+    return (
+        <>
+        <Container>
+            {tags.map((tag) => {
+                return (
+                    <>
+                        <Container
+                            backgroundColor='#def1ff' 
+                            key={tag.sys.id}
+                            mb={2}
+                            p={2}
+                            width='25%'
+                        >
+                            <Box >{tag.fields.tags}</Box>
+                        </Container>
+                    </>
+                )
+            })}
+        </Container>
+        </>
+    );
+};
+
+export default Tags;
