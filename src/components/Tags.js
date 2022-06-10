@@ -6,7 +6,12 @@ const Tags = ({tags}) => {
 
     return (
         <>
-        <Container>
+        <Container
+            display='flex'
+            flex-wrap='wrap'
+            justifyContent='space-around'
+            gap='5px'
+        >
             {tags.map((tag) => {
                 return (
                     <>
@@ -15,7 +20,6 @@ const Tags = ({tags}) => {
                                 key={tag.sys.id}
                                 mb={2}
                                 p={2}
-                                width='25%'
                             >{tag.fields.tags}</Box>
                     </>
                 )

@@ -3,11 +3,14 @@ import { Text, Image, Box } from '@chakra-ui/react';
 import { Container } from "@chakra-ui/layout";
 
 const Articles = ({articles}) => {
-// console.log(articles)
+console.log(articles)
+
+const displayedArticles = articles.slice(0,3)
+console.log(displayedArticles)
 
     return (
         <>
-            {articles.map((article) => {
+            {displayedArticles.map((article) => {
                 return (
                     <>
                     <Container 
