@@ -10,15 +10,13 @@ const Tags = ({tags}) => {
             {tags.map((tag) => {
                 return (
                     <>
-                        <Container
-                            backgroundColor='#def1ff' 
-                            key={tag.sys.id}
-                            mb={2}
-                            p={2}
-                            width='25%'
-                        >
-                            <Box >{tag.fields.tags}</Box>
-                        </Container>
+                            <Box 
+                                backgroundColor='#def1ff' 
+                                key={tag.sys.id}
+                                mb={2}
+                                p={2}
+                                width='25%'
+                            >{tag.fields.tags}</Box>
                     </>
                 )
             })}
