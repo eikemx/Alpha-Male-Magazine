@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Text, Image, Box, Button } from '@chakra-ui/react';
+import { Text, Image, Box } from '@chakra-ui/react';
 import { Container } from "@chakra-ui/layout";
 
 const Articles = ({articles}) => {
@@ -48,7 +48,6 @@ const loadMoreArticles = index + 3
                                 </Text>
                                 <Link to={`/article/${article.sys.id}`}>Read more...</Link>
                             </Box>
-                            {/* <Button onClick=((loadMore) => {})> Read more...</Button> */}
                     </Container>   
                     </>
                 )

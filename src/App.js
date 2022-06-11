@@ -26,7 +26,10 @@ useEffect(() => {
   const articles = client
   .getEntries({
     content_type: "product", // content type is actually article 
+    // 'metadata.tags.sys.id[in]': 'recommendation,spirituality'
   })
+
+  // {'metadata.tags.sys.id[in]': 'tagOne,tagTwo'}
 
   const authors = client
   .getEntries({
@@ -34,15 +37,13 @@ useEffect(() => {
   })
 
   const tags = client
-  .getEntries({
-    content_type: "tag",
-  })
+  .getTags()
 
   Promise
     .all([articles, authors, tags]).then(([articlesData, authorsData, tagsData]) => {
-      console.log(articlesData)
-      console.log(authorsData)
-      console.log(tagsData)
+      // console.log(articlesData)
+      // console.log(authorsData)
+      // console.log(tagsData)
       setArticles(articlesData)
       setAuthors(authorsData)
       setTags(tagsData)
@@ -72,7 +73,7 @@ if (isLoading) {
         <Route path='/'element={
           <>
             <About/>
-            <Tags tags={tags.items}/>
+            <Tags tags={tags}/>
             <Articles articles={articles.items}/>
             <Outlet/>
           </>

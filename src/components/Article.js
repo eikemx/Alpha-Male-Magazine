@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Text, Box, Image } from '@chakra-ui/react';
 import { Container } from "@chakra-ui/layout";
@@ -10,6 +10,8 @@ const Article = ({articles}) => {
         return article.sys.id === articleID;
     });
 
+    console.log(targetArticle)
+
     if (!targetArticle) {
         return <h4>This article has been removed!</h4>
     }
@@ -19,30 +21,32 @@ const Article = ({articles}) => {
             <Text>{targetArticle.fields.title}</Text>
             {targetArticle.fields.images.map((image) => {
                             return (
-                                <Image  src={image.fields.imageFile.fields.file.url} alt={image.fields.imageDescription} key={image.sys.id} />
+                                <Image  
+                                    src={image.fields.imageFile.fields.file.url} 
+                                    alt={image.fields.imageDescription} 
+                                    key={image.sys.id} />
                             )
                         })}
             <Text mt='25px'>{targetArticle.fields.subtitle}</Text>
             <Text mb='25px' mt='25px' >{documentToReactComponents(targetArticle.fields.articleText)}</Text>
-            <Box mb={2} p={2} bg='white' display='flex' justifyContent='center' width='25%'>
-                {targetArticle.fields.tags}
-            </Box>
             <Container mb={2} className="articles-author">
                 <Text>{targetArticle.fields.articleAuthor.fields.authorName}</Text>
-                <Box >
-                     {targetArticle.fields.images.map((image) => {
+                <Link to={`/author/${targetArticle.fields.articleAuthor.fields.tag.sys.id}`}>Read about me.</Link>
+                {/* <Box >
+                    {targetArticle.fields.articleAuthor.fields.image.map((image) => {
+                        console.log(image)
                         return (
                             <Image 
-                                 width="10%" 
-                                 height="10%" 
-                                 borderRadius='lg'
-                                 src={image.fields.imageFile.fields.file.url} 
-                                 alt={image.fields.imageDescription} 
-                                 key={image.sys.id} 
-                            />
-                                )
+                                width="10%" 
+                                height="10%" 
+                                borderRadius='lg'
+                                src={image.fields.imageFile.fields.file.url} 
+                                alt={image.fields.imageDescription} 
+                                key={image.sys.id} 
+                    />
+                        )
                     })}
-                </Box>
+                </Box> */}
             </Container>
         </Container>
     );
