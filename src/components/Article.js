@@ -24,7 +24,7 @@ const Article = ({articles}) => {
             flexDirection='column'
             alignItems='center'
         >
-                <Text
+                <Text 
                     fontSize='2xl'
                     fontWeight='bold'
                     mb='10px'

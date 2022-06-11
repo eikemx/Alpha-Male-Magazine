@@ -1,8 +1,10 @@
+import {Fragment} from "react"
 import { Box } from '@chakra-ui/react';
 import { Container } from "@chakra-ui/layout";
+import { Link } from "react-router-dom"
 
 const Tags = ({tags}) => {
-    // console.log(tags)
+    console.log(tags)
 
     return (
         <>
@@ -14,15 +16,18 @@ const Tags = ({tags}) => {
         >
             {tags.items.map((tag) => {
                 return (
-                    <>
+                    <Fragment key={tag.sys.id}>
                             <Box 
-                                backgroundColor='#def1ff' 
-                                key={tag.sys.id}
+                                // backgroundColor='#def1ff' 
+                                bgGradient="linear(to-r, cyan.400, blue.500,purple.600)"
                                 borderRadius='lg'
-                                mb={2}
+                                mb={8}
                                 p={2}
-                            >{tag.name}</Box>
-                    </>
+                            ><Link 
+                                to={`/topic/${tag.sys.id}`}
+                                className="tagName"
+                            >{tag.name}</Link></Box>
+                    </Fragment>
                 )
             })}
         </Container>

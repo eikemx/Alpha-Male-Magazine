@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from 'react-router-dom';
 import { Text, Image, Box } from '@chakra-ui/react';
 import { Container } from "@chakra-ui/layout";
@@ -9,21 +10,27 @@ const AllArticles = ({articles}) => {
         <>
             {articles.map((article) => {
                 return (
-                    <>
+                    <Fragment
+                        key={article.sys.id}
+                    >
                         <Container 
                             className="article" 
+                            display='flex'
+                            flexDirection='column'
                             mb='25px' 
                             p={2}
                             backgroundColor='#def1ff'
                             borderRadius='lg'
-                            key={article.sys.id}
                         >
-                                <Box >
+                                <Box 
+                                    alignSelf='center'
+                                    width="50%" 
+                                    height="50%" 
+                                >
                                     {article.fields.images.map((image) => {
                                         return (
                                             <Image 
-                                                width="10%" 
-                                                height="10%" 
+                                                mb={5} 
                                                 borderRadius='lg'
                                                 src={image.fields.imageFile.fields.file.url} 
                                                 alt={image.fields.imageDescription} 
@@ -33,7 +40,10 @@ const AllArticles = ({articles}) => {
                                     })}
                                 </Box>
                                 <Box>
-                                    <Text fontSize='xl'>{article.fields.title}</Text>
+                                    <Text 
+                                        fontSize='xl'
+                                        fontWeight='bold'
+                                    >{article.fields.title}</Text>
                                     <Text 
                                         fontSize='md' 
                                         mb={2}
@@ -44,7 +54,7 @@ const AllArticles = ({articles}) => {
                                     >Read more...</Link>
                                 </Box>
                         </Container>
-                    </>
+                    </Fragment>
                 )
             })}
         </>

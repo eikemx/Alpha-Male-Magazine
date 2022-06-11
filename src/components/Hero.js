@@ -14,8 +14,8 @@ const Hero = () => {
       <Stack>
         <Flex
           direction={isNotSmallerScreen ? "row" : "column"}
-          spacing="200px"
-          p={isNotSmallerScreen ? 32 : "0"}
+          // spacing="200px"
+          p={isNotSmallerScreen ? 50 : "0"}
           alignSelf="center"
         >
           <Link to="/">
