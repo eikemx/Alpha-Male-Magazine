@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes, Outlet, Link } from "react-router-dom";
 import client from "./contentful/client";
 import "./index.css";
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Tags from "./components/Tags";
+import AllArticles from "./components/AllArticles";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
 import About from "./components/About";
 import Authors from "./components/Authors";
+import Author from "./components/Author"
 import Footer from "./components/Footer";
 import FooterSubmitted from "./components/FooterSubmitted";
 
@@ -26,7 +28,7 @@ useEffect(() => {
   const articles = client
   .getEntries({
     content_type: "product", // content type is actually article 
-    // 'metadata.tags.sys.id[in]': 'recommendation,spirituality'
+    // 'metadata.tags.sys.id[in]': 'recommendation'
   })
 
   // {'metadata.tags.sys.id[in]': 'tagOne,tagTwo'}
@@ -70,28 +72,40 @@ if (isLoading) {
       <Header/>
       <Hero/>
       <Routes>
-        <Route path='/'element={
-          <>
-            <About/>
-            <Tags tags={tags}/>
-            <Articles articles={articles.items}/>
-            <Outlet/>
-          </>
-        }>
-        <Route path='/' element={<Footer/>} />
-        <Route path='submitted' element={<FooterSubmitted/>} />
-        </Route>
-        {/* <Route 
-          path='/articles' 
-          element={<Articles articles={articles.items}/>} 
-        /> */}
-        <Route 
-          path='/authors'
-          element={<Authors authors={authors.items}/>}
+          <Route 
+            path='/'
+            element={
+              <>
+                <About/>
+                <Tags tags={tags}/>
+                <Articles articles={articles.items}/>
+                <Link to={`/articles`} className='article-link'>See all articles</Link>
+                <Outlet/>
+              </>
+            }
+          >
+            <Route 
+              path='/' 
+              element={<Footer/>} />
+            <Route 
+              path='submitted' 
+              element={<FooterSubmitted/>} />
+          </Route>
+        <Route
+          path='/articles'
+          element={<AllArticles articles={articles.items} />}
         />
         <Route
           path='/article/:articleID'
           element={<Article articles={articles.items}/>}
+        />
+        <Route 
+          path='/authors'
+          element={<Authors authors={authors.items}/>}
+        />
+        <Route 
+          path='/author/:authorID'
+          element={<Author authors={authors.items}/>}
         />
       </Routes>
     </div>

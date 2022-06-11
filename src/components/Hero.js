@@ -4,8 +4,6 @@ import { Image } from "@chakra-ui/react";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { Link } from 'react-router-dom';
 
-// import Link from "./Link";
-
 const Hero = () => {
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
@@ -39,8 +37,6 @@ const Hero = () => {
                       Alpha Male Magazine
                     </Text>
                     <Text color={isDark ? "gray.400" : "gray.500"}></Text>
-
-                    {/* <Link /> */}
                   </Flex>
               </Box>
             </Circle>

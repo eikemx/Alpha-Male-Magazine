@@ -2,22 +2,16 @@ import { Link } from 'react-router-dom';
 import { Text, Image, Box } from '@chakra-ui/react';
 import { Container } from "@chakra-ui/layout";
 
-const Articles = ({articles}) => {
+const AllArticles = ({articles}) => {
 // console.log(articles)
-
-let index = 3
-
-const displayedArticles = articles.slice(0,index)
-// console.log(displayedArticles)
 
     return (
         <>
-            {displayedArticles.map((article) => {
+            {articles.map((article) => {
                 return (
                     <>
                         <Container 
                             className="article" 
-                            
                             mb='25px' 
                             p={2}
                             backgroundColor='#def1ff'
@@ -28,8 +22,8 @@ const displayedArticles = articles.slice(0,index)
                                     {article.fields.images.map((image) => {
                                         return (
                                             <Image 
-                                                width="20%" 
-                                                height="20%" 
+                                                width="10%" 
+                                                height="10%" 
                                                 borderRadius='lg'
                                                 src={image.fields.imageFile.fields.file.url} 
                                                 alt={image.fields.imageDescription} 
@@ -58,4 +52,4 @@ const displayedArticles = articles.slice(0,index)
 
 }
 
-export default Articles;
+export default AllArticles;

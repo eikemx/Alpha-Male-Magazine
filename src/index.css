@@ -6,8 +6,14 @@
     color: #1b4965;
 }
 
-/* .footer {
-    border: 1px solid red;
+.article-link {
     display: flex;
-    justify-content: space-around;
-} */
+    justify-content: center;
+    margin: 15px;
+    text-decoration: underline;
+}
+
+.author-link {
+    text-decoration: underline;
+    
+}
