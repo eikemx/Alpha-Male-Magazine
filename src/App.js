@@ -17,8 +17,9 @@ const App = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [articles, setArticles] = useState()
-  const [authors, setAuthors] = useState()
+  const [articles, setArticles] = useState();
+  const [authors, setAuthors] = useState();
+  const [tags, setTags] = useState();
 
 useEffect(() => {
   setIsLoading(true);
@@ -32,12 +33,19 @@ useEffect(() => {
     content_type: "author",
   })
 
+  const tags = client
+  .getEntries({
+    content_type: "tag",
+  })
+
   Promise
-    .all([articles, authors]).then(([articlesData, authorsData]) => {
-    //  console.log(articlesData)
-      // console.log(authorsData)
+    .all([articles, authors, tags]).then(([articlesData, authorsData, tagsData]) => {
+      console.log(articlesData)
+      console.log(authorsData)
+      console.log(tagsData)
       setArticles(articlesData)
       setAuthors(authorsData)
+      setTags(tagsData)
       setIsLoading(false);
   })
     .catch((e) => {
@@ -64,7 +72,7 @@ if (isLoading) {
         <Route path='/'element={
           <>
             <About/>
-            <Tags tags={articles.items}/>
+            <Tags tags={tags.items}/>
             <Articles articles={articles.items}/>
             <Outlet/>
           </>
