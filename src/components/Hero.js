@@ -2,7 +2,7 @@ import { useColorMode } from "@chakra-ui/color-mode";
 import { Stack, Circle, Flex, Box, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import { useMediaQuery } from "@chakra-ui/media-query";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const { colorMode } = useColorMode();
@@ -14,7 +14,6 @@ const Hero = () => {
       <Stack>
         <Flex
           direction={isNotSmallerScreen ? "row" : "column"}
-          // spacing="200px"
           p={isNotSmallerScreen ? 50 : "0"}
           alignSelf="center"
         >
@@ -27,17 +26,17 @@ const Hero = () => {
               h="300px"
             >
               <Box>
-                  <Flex direction="column" align={"center"}>
-                    <Text
-                      fontSize="29"
-                      fontWeight="bold"
-                      bgGradient="linear(to-r, cyan.400, blue.500,purple.600)"
-                      bgClip="text"
-                    >
-                      Alpha Male Magazine
-                    </Text>
-                    <Text color={isDark ? "gray.400" : "gray.500"}></Text>
-                  </Flex>
+                <Flex direction="column" align={"center"}>
+                  <Text
+                    fontSize="29"
+                    fontWeight="bold"
+                    bgGradient="linear(to-r, cyan.400, blue.500,purple.600)"
+                    bgClip="text"
+                  >
+                    Alpha Male Magazine
+                  </Text>
+                  <Text color={isDark ? "gray.400" : "gray.500"}></Text>
+                </Flex>
               </Box>
             </Circle>
           </Link>

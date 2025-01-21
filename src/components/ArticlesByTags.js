@@ -1,24 +1,21 @@
 // ES7+ React/Redux/React-Native snippets
-import React from 'react'
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-import AllArticles from "./AllArticles"
+import React from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import AllArticles from "./AllArticles";
 
-const ArticlesByTags = ({articles, setSelectedTag}) => {
-    const { tagId } = useParams(); 
+const ArticlesByTags = ({ articles, setSelectedTag }) => {
+  const { tagId } = useParams();
 
-    useEffect(() => {
-        setSelectedTag(tagId)
-    }, [tagId])
+  useEffect(() => {
+    setSelectedTag(tagId);
+  }, [tagId, setSelectedTag]);
 
-    console.log(articles)
+  console.log(articles);
 
-    if (!articles) return null;
+  if (!articles) return null;
 
-  return (
-    
-    <AllArticles articles={articles.items} />
-  )
-}
+  return <AllArticles articles={articles.items} />;
+};
 
-export default ArticlesByTags
+export default ArticlesByTags;
