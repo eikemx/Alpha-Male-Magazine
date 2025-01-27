@@ -1,6 +1,6 @@
 # Alpha Male Magazine - A Modern Men's Lifestyle Platform
 
-<img src="./src/img/alpha-male-magazine-screenshot.png" width="600" alt="vader news">
+<img src="./src/img/alpha-male-magazine-screenshot.png" width="600" alt="alpha male magazine">
 
 ## Project Overview
 Alpha Male Magazine is a dynamic web platform focused on men's lifestyle content, built during the WBS Coding School Bootcamp. The project delivers curated articles and content about fitness, personal development, and lifestyle topics.
@@ -50,8 +50,8 @@ The project is deployed and can be viewed at [https://alpha-male-magazine.netlif
 alpha-male-magazine/
 ├── src/
 │ ├── components/
-│ ├── styles/
-│ └── assets/
+│ ├── contentful/
+│ └── img/
 ├── public/
 └── README.md
 ```
